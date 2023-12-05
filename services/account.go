@@ -3,7 +3,6 @@ package services
 import (
 	"errors"
 	"hotelfortuna/common/utils"
-	"hotelfortuna/dao/models"
 	daoModel "hotelfortuna/dao/models"
 	"hotelfortuna/dao/repositories"
 	"time"
@@ -131,7 +130,7 @@ func (a AccountService) GetAccountByPhoneNumber(areaCode, phoneNumber string) *A
 	return &Account{*account}
 }
 
-func NewAccount(account models.Account) Account {
+func NewAccount(account daoModel.Account) Account {
 	return Account{account}
 }
 

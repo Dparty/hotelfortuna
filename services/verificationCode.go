@@ -3,6 +3,7 @@ package services
 import (
 	"hotelfortuna/dao/repositories"
 	verificationcode "hotelfortuna/verificationCode"
+	"sync"
 	"time"
 
 	"github.com/Dparty/common/sms"
@@ -28,7 +29,10 @@ type VerificationService struct {
 	verificationCodeRepository *repositories.VerificationCodeRepository
 }
 
+var mu sync.Mutex
+
 func (v VerificationService) CreateVerificationCode(areaCode, phoneNumber string) bool {
+	mu.Lock()
 	verificationCode := v.verificationCodeRepository.GetByPhoneNumber(areaCode, phoneNumber)
 	if verificationCode == nil || time.Now().After(verificationCode.CreatedAt.Add(time.Minute)) {
 		v.verificationCodeRepository.DeletePhoneNumber(areaCode, phoneNumber)
@@ -38,7 +42,9 @@ func (v VerificationService) CreateVerificationCode(areaCode, phoneNumber string
 			Number:   phoneNumber,
 		}, code)
 		v.verificationCodeRepository.CreatePhone(areaCode, phoneNumber, code)
+		mu.Unlock()
 		return true
 	}
+	mu.Unlock()
 	return false
 }
