@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"god-of-wealth/services"
+	"hotelfortuna/services"
 	"net/http"
 
 	"github.com/Dparty/common/server"

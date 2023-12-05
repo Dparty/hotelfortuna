@@ -2,10 +2,10 @@ package services
 
 import (
 	"errors"
-	"god-of-wealth/common/utils"
-	"god-of-wealth/dao/models"
-	daoModel "god-of-wealth/dao/models"
-	"god-of-wealth/dao/repositories"
+	"hotelfortuna/common/utils"
+	"hotelfortuna/dao/models"
+	daoModel "hotelfortuna/dao/models"
+	"hotelfortuna/dao/repositories"
 	"time"
 
 	dutils "github.com/Dparty/common/utils"

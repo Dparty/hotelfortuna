@@ -1,8 +1,8 @@
 package services
 
 import (
-	"god-of-wealth/dao/repositories"
-	verificationcode "god-of-wealth/verificationCode"
+	"hotelfortuna/dao/repositories"
+	verificationcode "hotelfortuna/verificationCode"
 	"time"
 
 	"github.com/Dparty/common/sms"

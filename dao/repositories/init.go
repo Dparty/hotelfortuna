@@ -1,8 +1,8 @@
 package repositories
 
 import (
-	"god-of-wealth/dao"
-	"god-of-wealth/dao/models"
+	"hotelfortuna/dao"
+	"hotelfortuna/dao/models"
 )
 
 func init() {

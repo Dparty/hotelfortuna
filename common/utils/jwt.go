@@ -3,7 +3,7 @@ package utils
 import (
 	"errors"
 	"fmt"
-	"god-of-wealth/common/config"
+	"hotelfortuna/common/config"
 
 	"github.com/golang-jwt/jwt"
 )

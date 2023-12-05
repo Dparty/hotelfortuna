@@ -1,7 +1,7 @@
 package verificationcode
 
 import (
-	"god-of-wealth/common/config"
+	"hotelfortuna/common/config"
 
 	"github.com/Dparty/common/sms"
 )

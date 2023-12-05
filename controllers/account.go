@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"errors"
-	"god-of-wealth/common/config"
-	"god-of-wealth/controllers/models"
-	"god-of-wealth/services"
+	"hotelfortuna/common/config"
+	"hotelfortuna/controllers/models"
+	"hotelfortuna/services"
 	"net/http"
 	"time"
 

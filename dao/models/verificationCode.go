@@ -1,7 +1,7 @@
 package models
 
 import (
-	"god-of-wealth/common/utils"
+	"hotelfortuna/common/utils"
 	"time"
 
 	"gorm.io/gorm"

@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"god-of-wealth/controllers/models"
-	"god-of-wealth/services"
+	"hotelfortuna/controllers/models"
+	"hotelfortuna/services"
 
-	"god-of-wealth/common/utils"
+	"hotelfortuna/common/utils"
 )
 
 func AccountBackword(account services.Account) models.Account {

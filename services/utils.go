@@ -1,7 +1,7 @@
 package services
 
 import (
-	"god-of-wealth/common/utils"
+	"hotelfortuna/common/utils"
 	"strings"
 
 	"github.com/gin-gonic/gin"

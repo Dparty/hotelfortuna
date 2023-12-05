@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"god-of-wealth/controllers/models"
-	"god-of-wealth/services"
+	"hotelfortuna/controllers/models"
+	"hotelfortuna/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

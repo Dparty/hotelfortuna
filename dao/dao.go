@@ -2,7 +2,7 @@ package dao
 
 import (
 	"fmt"
-	"god-of-wealth/common/config"
+	"hotelfortuna/common/config"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"god-of-wealth/controllers"
+	"hotelfortuna/controllers"
 )
 
 func main() {

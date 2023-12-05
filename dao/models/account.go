@@ -3,7 +3,7 @@ package models
 import (
 	"time"
 
-	"god-of-wealth/common/utils"
+	"hotelfortuna/common/utils"
 
 	"github.com/Dparty/dao/common"
 	"gorm.io/gorm"

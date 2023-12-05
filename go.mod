@@ -1,4 +1,4 @@
-module god-of-wealth
+module hotelfortuna
 
 go 1.21.1
 
