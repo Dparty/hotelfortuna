@@ -1,0 +1,281 @@
+openapi: 3.0.3
+info:
+  title: fortunahotel APIs
+  description: |-
+    Dparty
+  contact:
+    email: chenyunda218@gmail.com
+  version: 0.0.20
+servers:
+  - url: https://gow.macao-notification.com
+tags:
+  - name: Account
+paths:
+  /me:
+    get:
+      operationId: GetAccount
+      tags: [Account]
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+    put:
+      operationId: UpdateAccountInfo
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccountRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+  /sessions:
+    post:
+      operationId: CreateSession
+      tags: [Account]
+      description: Success
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSessionRequest'
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+  /accounts:
+    post:
+      operationId: CreateAccount
+      tags: [Account]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+        '409':
+          description: Account exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '406':
+          description: Verification Code Fault
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+    get:
+      operationId: ListAccounts
+      tags: [Account]
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountList'
+  /verification:
+    post:
+      operationId: CreateVerificationCode
+      tags: [Account]
+      description: 'Create restaurant'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateVerificationCodeRequest'
+      responses:
+        '201':
+          description: Created
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+components:
+  schemas:
+    ErrorMessage:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    Account:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        phoneNumber:
+          $ref: '#/components/schemas/PhoneNumber'
+        name:
+          type: string
+        gender:
+          $ref: '#/components/schemas/Gender'
+        from:
+          $ref: '#/components/schemas/UserFrom'
+        points:
+          type: integer
+          format: int64
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+    AccountList:
+      type: object
+      properties:
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      description: 'Pagination'
+      type: object
+      required:
+        - index
+        - limit
+        - total
+      properties:
+        index:
+          type: integer
+          format: int64
+          description: 'Current page'
+        limit:
+          type: integer
+          format: int64
+          description: 'Amount per page'
+        total:
+          type: integer
+          format: int64
+          description: 'Total page'
+    Gender:
+      type: string
+      enum: [MALE, FEMALE]
+    Session:
+      type: object
+      required:
+        - token
+      properties:
+        token:
+          type: string
+    CreateSessionRequest:
+      type: object
+      properties:
+        phoneNumber:
+          $ref: '#/components/schemas/PhoneNumber'
+        verificationCode:
+          type: string
+        password:
+          type: string
+    AreaCode:
+      type: string
+      enum: ["86", "853", "852"]
+    PhoneNumber:
+      type: object
+      required:
+        - areaCode
+        - number
+      properties:
+        areaCode:
+          $ref: '#/components/schemas/AreaCode'
+        number:
+          type: string
+    UserFrom:
+      type: string
+      enum: [WECHAT, WALK_IN, OTHER]
+    Service:
+      type: string
+      enum: [F_AND_B, ENTERTAINMENT]
+    CreateAccountRequest:
+      type: object
+      properties:
+        phoneNumber:
+          $ref: '#/components/schemas/PhoneNumber'
+        verificationCode:
+          type: string
+        password:
+          type: string
+        gender:
+          $ref: '#/components/schemas/Gender'
+        firstName:
+          type: string
+        lastName:
+          type: string
+        birthday:
+          type: integer
+          format: int64
+        from:
+          $ref: '#/components/schemas/UserFrom'
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+    VerificationPurpoe:
+      type: string
+      enum: [REGISTER, LOGIN, RESET_PASSWORD]
+    CreateVerificationCodeRequest:
+      type: object
+      properties:
+        purpose:
+          $ref: '#/components/schemas/VerificationPurpoe'
+        phoneNumber:
+          $ref: '#/components/schemas/PhoneNumber'
+    UpdateAccountRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        gender:
+          $ref: '#/components/schemas/Gender'
+        birthday:
+          type: integer
+          format: int64
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+  parameters:
+    ID:
+      in: path
+      name: id
+      schema:
+        type: string
+      required: true
+    StartAt:
+      in: query
+      name: startAt
+      schema:
+        type: integer
+        format: int64
+    EndAt:
+      in: query
+      name: endAt
+      schema:
+        type: integer
+        format: int64

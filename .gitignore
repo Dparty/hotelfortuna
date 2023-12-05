@@ -1,0 +1,7 @@
+.env*
+.env.yaml
+.DS_Store
+env.yaml
+./config
+python.py
+typescript
