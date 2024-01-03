@@ -3,7 +3,6 @@ package repositories
 import (
 	"hotelfortuna/dao"
 	"hotelfortuna/dao/models"
-	"time"
 
 	"gorm.io/gorm"
 )
@@ -50,9 +49,9 @@ func (r VerificationCodeRepository) GetByPhoneNumber(areaCode, phoneNumber strin
 	return &verificationCode
 }
 
-func (r VerificationCodeRepository) DeleteExpired() {
-	r.db.Exec("DELETE FROM verification_codes WHERE created_at <= ?", time.Now().Add(-time.Minute*10))
-}
+// func (r VerificationCodeRepository) DeleteExpired() {
+// 	r.db.Exec("DELETE FROM verification_codes WHERE created_at <= ?", time.Now().Add(-time.Minute*10))
+// }
 
 func (r VerificationCodeRepository) DeletePhoneNumber(areaCode, phoneNumber string) {
 	r.db.Exec("DELETE FROM verification_codes WHERE area_code = ? AND phone_number = ?", areaCode, phoneNumber)

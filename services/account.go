@@ -101,7 +101,7 @@ func (a AccountService) CreateSession(
 		return "", ErrorUnauthorized
 	}
 	if verificationCode != nil {
-		a.verificationCodeRepository.DeleteExpired()
+		// a.verificationCodeRepository.DeleteExpired()
 		code := a.verificationCodeRepository.GetByPhoneNumber(areaCode, phoneNumber)
 		if code == nil {
 			return "", ErrorUnauthorized
