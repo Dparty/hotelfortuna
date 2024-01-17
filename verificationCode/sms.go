@@ -16,12 +16,15 @@ var tencentSmsSender = tencentSms.NewSmsSender(config.GetString("tencentCloud.se
 
 func SendVerificationCode(to sms.PhoneNumber, code string) {
 	config := tencentSms.Config{
-		AppId:      config.GetString("tencentCloud.sms.appId"),
+		AppId:      "2400001857",
 		SignName:   "財神酒店",
 		TemplateId: "2910166",
 	}
 	vars := []string{code}
-	tencentSmsSender.SendWithConfig(models.PhoneNumber{AreaCode: to.AreaCode, Number: to.Number}, config, vars)
+	err := tencentSmsSender.SendWithConfig(models.PhoneNumber{AreaCode: to.AreaCode, Number: to.Number}, config, vars)
+	if err != nil {
+		println(err)
+	}
 }
 
 // func getTemplateIdByAreaCode(areaCode string) string {
