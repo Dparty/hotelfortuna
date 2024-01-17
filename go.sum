@@ -257,10 +257,16 @@ github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcU
 github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
 github.com/subosito/gotenv v1.6.0 h1:9NlTDc1FTs4qu0DDq7AEtTPNw6SVm7uBMsUCUjABIf8=
 github.com/subosito/gotenv v1.6.0/go.mod h1:Dk4QP5c2W3ibzajGcXpNraDfq2IrhjMIvMSWPKKo0FU=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.842 h1:neo0ZcZYBRgPrYvzpy6tpWS5PoVhUOC6I6RHRfDCZUU=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.842/go.mod h1:r5r4xbfxSaeR04b166HGsBa/R4U3SueirEUpXGuw+Q0=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms v1.0.842 h1:DdukYFB+F9cCTGbj2Vdaoc+RA22Qa10uLlwyn8Kst24=
+github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms v1.0.842/go.mod h1:8X5W3k7f7KEhWbXXXfWwV9PRd0xr6d8r6PBZsBUj7NI=
 github.com/twitchyliquid64/golang-asm v0.15.1 h1:SU5vSMR7hnwNxj24w34ZyCi/FmDZTkS4MhqMhdFk5YI=
 github.com/twitchyliquid64/golang-asm v0.15.1/go.mod h1:a1lVb/DtPvCB8fslRZhAngC2+aY1QWCk3Cedj/Gdt08=
 github.com/ugorji/go/codec v1.2.11 h1:BMaWp1Bb6fHwEtbplGBGJ498wD+LKlNSl25MjdZY4dU=
 github.com/ugorji/go/codec v1.2.11/go.mod h1:UNopzCgEMSXjBc6AOMqYvWC1ktqTAfzJZUZgYf6w6lg=
+github.com/universalmacro/common v0.0.0-20240117015104-5e9372b7988c h1:IkDqJFSUCBnDLD60VC7gbLxblMZh2+4m/bOGlW62MHA=
+github.com/universalmacro/common v0.0.0-20240117015104-5e9372b7988c/go.mod h1:eWCyyl01Ab6N0VJc4OE6CmxNP+g9KZCi4OS0V7JP0/M=
 github.com/yuin/goldmark v1.1.25/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/yuin/goldmark v1.1.32/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
